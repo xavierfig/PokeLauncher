@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <meta name="description" content="PokeLauncher: encuentra juegos Pokémon, prepara RetroArch y juega batallas online.">
+    <title>PokeLauncher</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegación principal">
+        <a class="brand" href="#" aria-label="PokeLauncher, inicio">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <span>Poke<span class="brand-accent">Launcher</span></span>
+        </a>
+
+        <p class="side-label">MENÚ PRINCIPAL</p>
+        <nav class="side-nav">
+          <button class="nav-link active" data-view="games" type="button">
+            <span class="nav-icon" aria-hidden="true">▦</span> Juegos
+          </button>
+          <button class="nav-link" data-view="library" type="button">
+            <span class="nav-icon" aria-hidden="true">▣</span> Mi biblioteca
+          </button>
+          <button class="nav-link" data-view="resources" type="button">
+            <span class="nav-icon" aria-hidden="true">⌘</span> Emulador y recursos
+          </button>
+          <button class="nav-link" data-view="online" type="button">
+            <span class="nav-icon" aria-hidden="true">◎</span> Arena online
+          </button>
+          <button class="nav-link" data-view="pokedex" type="button">
+            <span class="nav-icon" aria-hidden="true">◉</span> Pokédex
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-note">
+            <span class="note-icon" aria-hidden="true">♡</span>
+            <strong>Juega de forma responsable</strong>
+            <p>Usa solo juegos y archivos que tengas derecho a utilizar. No alojamos ROMs.</p>
+          </div>
+          <span class="version-label">POKELAUNCHER <span>·</span> 1.0</span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Inicio</span><span class="crumb-separator">/</span><strong id="breadcrumb-current">Juegos</strong></div>
+          <span class="topbar-tag">CATÁLOGO DE JUEGOS</span>
+        </header>
+
+        <section class="view active" id="view-games" aria-labelledby="page-title">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> TU CENTRO POKÉMON</p>
+              <h1 id="page-title">¡Hola, entrenador!</h1>
+              <p class="subtitle">Explora juegos oficiales y proyectos de fans con sus datos principales.</p>
+            </div>
+            <div class="trainer-badge" aria-hidden="true"><span>⚡</span></div>
+          </div>
+
+          <section class="hero-card" aria-label="Presentación">
+            <div class="hero-copy">
+              <span class="hero-kicker">TU AVENTURA EMPIEZA AQUÍ</span>
+              <h2>Todos tus mundos<br>en un solo lugar.</h2>
+              <p>Descubre juegos Pokémon, organiza tu biblioteca y prepara tu configuración de emulación.</p>
+              <button class="button button-light" data-go="resources" type="button">Preparar RetroArch <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+            <div class="hero-ball" aria-hidden="true"><span></span></div>
+            <div class="hero-spark spark-one" aria-hidden="true">✦</div>
+            <div class="hero-spark spark-two" aria-hidden="true">✧</div>
+            <div class="hero-caption">TU PRÓXIMA HISTORIA TE ESPERA</div>
+          </section>
+
+          <section class="game-section" aria-labelledby="games-title">
+            <div class="section-heading">
+              <div>
+                <h2 id="games-title">Explora los juegos</h2>
+                <p>Consulta consola, región, año y opciones seguras para jugar.</p>
+              </div>
+              <label class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <input id="game-search" type="search" placeholder="Buscar un juego..." aria-label="Buscar un juego">
+                <kbd>/</kbd>
+              </label>
+            </div>
+            <div class="filter-row" role="group" aria-label="Filtrar catálogo">
+              <button class="filter-chip selected" data-filter="all" type="button">Todos</button>
+              <button class="filter-chip" data-filter="official" type="button">Juegos oficiales</button>
+              <button class="filter-chip" data-filter="hack" type="button">ROM hacks</button>
+            </div>
+            <div class="catalog-count" id="catalog-count" aria-live="polite"></div>
+            <div class="game-grid" id="game-grid"></div>
+            <p class="empty-state" id="empty-games" hidden>No encontramos juegos con ese nombre. Prueba otra búsqueda.</p>
+            <p class="catalog-footnote">Catálogo de referencia no exhaustivo con portadas gráficas originales de PokeLauncher. No ofrece archivos comerciales: selecciona una copia que ya tengas. Los hacks requieren una copia base legítima y un parche del creador.</p>
+          </section>
+
+          <section class="owned-strip">
+            <div class="owned-icon" aria-hidden="true">＋</div>
+            <div><h2>¿Ya tienes un juego compatible?</h2><p>Añade un archivo propio a tu biblioteca. PokeLauncher no descarga ni distribuye juegos.</p></div>
+            <button class="button button-outline" data-go="library" type="button">Añadir juego propio</button>
+          </section>
+          <footer class="footer-note">PokeLauncher no está afiliado con Nintendo, The Pokémon Company ni RetroArch.</footer>
+        </section>
+
+        <section class="view" id="view-library" aria-labelledby="library-title">
+          <div class="page-intro">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> TU COLECCIÓN</p>
+            <h1 id="library-title">Mi biblioteca</h1>
+            <p class="subtitle">Organiza los archivos de juegos que tienes derecho a usar.</p>
+          </div>
+          <div class="library-panel">
+            <div class="library-empty-icon" aria-hidden="true">▣</div>
+            <h2>Tu biblioteca comienza aquí</h2>
+            <p>Selecciona un archivo local para ver si su formato es compatible con RetroArch. El archivo permanece en tu dispositivo.</p>
+            <label class="button button-primary file-button" for="game-file">＋ Añadir un juego propio</label>
+            <input id="game-file" type="file" accept=".gb,.gbc,.gba,.nds,.nes,.sfc,.smc,.zip" hidden>
+            <p class="file-note">Formatos comunes: GB, GBC, GBA, NDS, NES y SNES. La compatibilidad depende del núcleo instalado.</p>
+          </div>
+          <div class="selected-file-card" id="selected-file-card" hidden>
+            <div class="file-symbol" aria-hidden="true">▤</div>
+            <div class="selected-file-copy"><span class="file-label">ARCHIVO SELECCIONADO</span><h3 id="selected-file-name"></h3><p id="selected-file-detail"></p></div>
+            <button class="button button-outline" data-go="resources" type="button">Configurar RetroArch</button>
+          </div>
+          <div class="notice-card"><span class="notice-symbol" aria-hidden="true">ⓘ</span><p><strong>Importante:</strong> el navegador no puede abrir juegos directamente en RetroArch. Añade el archivo desde RetroArch y elige un núcleo compatible. No se descargan ROMs, BIOS ni archivos de juegos desde esta app.</p></div>
+        </section>
+
+        <section class="view" id="view-resources" aria-labelledby="resources-title">
+          <div class="page-intro">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> CONFIGURACIÓN</p>
+            <h1 id="resources-title">Emulador y recursos</h1>
+            <p class="subtitle">Prepara RetroArch desde sus fuentes oficiales y añade solo contenido legítimo.</p>
+          </div>
+          <div class="resource-banner">
+            <div class="resource-symbol" aria-hidden="true">⌘</div>
+            <div class="resource-copy"><span class="hero-kicker">EMULACIÓN MULTISISTEMA</span><h2>RetroArch</h2><p>RetroArch es un frontend de emulación. Los núcleos disponibles dependen del sistema operativo y de la consola que quieras emular.</p><a class="button button-light" href="https://www.retroarch.com/?page=platforms" target="_blank" rel="noopener noreferrer">Descargar desde RetroArch <span aria-hidden="true">↗</span></a></div>
+            <div class="resource-rings" aria-hidden="true"><span></span><i></i></div>
+          </div>
+          <div class="section-heading resource-heading"><div><h2>Tu lista de preparación</h2><p>Pasos seguros para empezar a jugar.</p></div><span class="official-pill"><span></span> FUENTES OFICIALES</span></div>
+          <div class="resource-list">
+            <article class="resource-item"><span class="step-number">01</span><div class="resource-item-icon">↓</div><div class="resource-item-copy"><h3>Instala RetroArch</h3><p>Elige la versión adecuada para tu equipo en la web oficial.</p></div><a class="resource-link" href="https://www.retroarch.com/?page=platforms" target="_blank" rel="noopener noreferrer">Ir a descargas <span>↗</span></a></article>
+            <article class="resource-item"><span class="step-number">02</span><div class="resource-item-icon">▦</div><div class="resource-item-copy"><h3>Instala un núcleo</h3><p>Los núcleos son emuladores por sistema y se descargan desde RetroArch.</p></div><a class="resource-link" href="https://docs.libretro.com/guides/download-cores/" target="_blank" rel="noopener noreferrer">Ver guía oficial <span>↗</span></a></article>
+            <article class="resource-item"><span class="step-number">03</span><div class="resource-item-icon">✧</div><div class="resource-item-copy"><h3>Configura recursos visuales</h3><p>Explora temas y sombreadores disponibles en el ecosistema de RetroArch.</p></div><a class="resource-link" href="https://docs.libretro.com/guides/shaders/" target="_blank" rel="noopener noreferrer">Ver guía oficial <span>↗</span></a></article>
+            <article class="resource-item"><span class="step-number">04</span><div class="resource-item-icon">♡</div><div class="resource-item-copy"><h3>Usa tus propios juegos</h3><p>Abre en RetroArch únicamente juegos y archivos que tengas derecho a utilizar.</p></div><span class="resource-status">EN TU DISPOSITIVO</span></article>
+          </div>
+          <div class="notice-card"><span class="notice-symbol" aria-hidden="true">ⓘ</span><p>Por seguridad y respeto a los derechos de autor, PokeLauncher no descarga ROMs, BIOS, firmware ni recursos de juegos protegidos. Los archivos de recursos opcionales se instalan desde RetroArch y sus fuentes oficiales.</p></div>
+        </section>
+
+        <section class="view" id="view-online" aria-labelledby="online-title">
+          <div class="page-intro">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> JUEGA CON ENTRENADORES</p>
+            <h1 id="online-title">Batallas online</h1>
+            <p class="subtitle">Crea una cuenta, invita a otro entrenador y juega duelos por turnos en salas propias.</p>
+          </div>
+          <div class="online-card">
+            <div class="online-art" aria-hidden="true"><span class="online-orb orb-a"></span><span class="online-orb orb-b"></span><span class="online-bolt">⚡</span><span class="online-spark">✦</span></div>
+            <div class="online-copy"><span class="hero-kicker">BATALLAS PROPIAS · PRIMERA VERSIÓN</span><h2>Poke Arena</h2><p>Un prototipo independiente de duelos online por turnos, con cuentas, equipos locales y salas mediante código. No se conecta a servicios externos de batalla.</p><span class="online-ready-label">Requiere configurar el proyecto Supabase de la app.</span></div>
+          </div>
+          <section class="team-builder" aria-labelledby="team-title">
+            <div class="section-heading team-heading"><div><h2 id="team-title">Tu equipo de batalla</h2><p>Elige hasta seis Pokémon para tu perfil y las salas.</p></div><span class="local-pill">GUARDADO LOCAL</span></div>
+            <div class="team-controls">
+              <label class="team-name-label" for="team-name">Nombre del equipo<input id="team-name" maxlength="30" placeholder="Mi equipo" autocomplete="off"></label>
+              <label class="team-name-label" for="player-name">Nombre de entrenador<input id="player-name" maxlength="18" placeholder="Entrenador123" autocomplete="nickname"></label>
+            </div>
+            <div class="team-grid" id="team-grid"></div>
+            <div class="team-actions"><span id="team-status" class="team-status" role="status" aria-live="polite"></span></div>
+          </section>
+          <div class="battle-columns">
+            <section class="battle-panel" aria-labelledby="account-title">
+              <div class="section-heading"><div><h2 id="account-title">Cuenta PokeLauncher</h2><p>Usa tu cuenta para crear o unirte a salas.</p></div></div>
+              <div class="supabase-config" id="supabase-config">
+                <label class="team-name-label" for="supabase-url">URL del proyecto Supabase<input id="supabase-url" type="url" placeholder="https://tu-proyecto.supabase.co" autocomplete="url"></label>
+                <label class="team-name-label" for="supabase-anon-key">Clave pública anon<input id="supabase-anon-key" type="password" placeholder="Clave anon del proyecto" autocomplete="off"></label>
+                <button class="button button-outline" id="connect-supabase" type="button">Conectar proyecto</button>
+              </div>
+              <form class="auth-form" id="auth-form">
+                <label class="team-name-label" for="auth-email">Correo<input id="auth-email" type="email" required autocomplete="email"></label>
+                <label class="team-name-label" for="auth-password">Contraseña<input id="auth-password" type="password" minlength="8" required autocomplete="current-password"></label>
+                <div class="team-actions"><button class="button button-primary" id="sign-in" type="button">Iniciar sesión</button><button class="button button-outline" id="sign-up" type="button">Crear cuenta</button><button class="button button-outline" id="sign-out" type="button" hidden>Cerrar sesión</button></div>
+              </form>
+              <p class="team-status" id="auth-status" role="status" aria-live="polite">Configura tu proyecto Supabase para habilitar las cuentas online.</p>
+            </section>
+            <section class="battle-panel" aria-labelledby="room-title">
+              <div class="section-heading"><div><h2 id="room-title">Salas de batalla</h2><p>Duelo por turnos con un código privado.</p></div></div>
+              <div class="team-actions"><button class="button button-primary" id="create-room" type="button">Crear sala</button></div>
+              <form class="join-room-form" id="join-room-form"><label class="team-name-label" for="room-code">Código de sala<input id="room-code" maxlength="8" placeholder="A1B2C3D4" autocomplete="off"></label><button class="button button-outline" type="submit">Unirme</button></form>
+              <div class="room-card" id="room-card" hidden>
+                <span class="file-label">TU SALA</span><strong id="room-code-display"></strong>
+                <p id="room-state"></p>
+                <p id="battle-score"></p>
+                <p id="battle-team"></p>
+                <div id="battle-log" class="battle-log" aria-live="polite"></div>
+                <div class="team-actions"><button class="button button-primary battle-move" data-move="Tackle" type="button">Placaje</button><button class="button button-outline battle-move" data-move="Quick Attack" type="button">Ataque rápido</button><button class="button button-outline battle-move" data-move="Special" type="button">Movimiento especial</button></div>
+              </div>
+              <p class="team-status" id="room-status" role="status" aria-live="polite">Las cuentas y salas requieren configurar Supabase.</p>
+            </section>
+          </div>
+          <div class="notice-card"><span class="notice-symbol" aria-hidden="true">ⓘ</span><p>El módulo es un prototipo de batalla independiente: las cuentas autentican jugadores y las salas usan el backend Supabase que configure el administrador. El combate actual usa movimientos genéricos y puntos de energía simplificados; no implementa todas las reglas ni los datos oficiales de los juegos. No se leen partidas guardadas.</p></div>
+        </section>
+
+        <section class="view" id="view-pokedex" aria-labelledby="pokedex-title">
+          <div class="page-intro">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> GUÍA DE CRIATURAS</p>
+            <h1 id="pokedex-title">Pokédex</h1>
+            <p class="subtitle">Estadísticas, tipos, fortalezas y orientación de entrenamiento en una ficha independiente.</p>
+          </div>
+          <div class="pokedex-toolbar">
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="pokedex-search" type="search" placeholder="Buscar Pokémon..." aria-label="Buscar Pokémon"><kbd>/</kbd></label>
+            <label class="type-filter-label" for="pokedex-type">Tipo<select id="pokedex-type"><option value="">Todos los tipos</option></select></label>
+          </div>
+          <div class="pokedex-layout">
+            <section class="pokedex-list-panel" aria-label="Resultados Pokédex">
+              <p class="catalog-count" id="pokedex-count" aria-live="polite">Cargando Pokédex…</p>
+              <div class="pokedex-list" id="pokedex-list"></div>
+              <button class="button button-outline load-more" id="pokedex-more" type="button" hidden>Cargar más</button>
+              <p class="api-status" id="pokedex-status" role="status" aria-live="polite">Conectando con PokéAPI…</p>
+            </section>
+            <section class="pokedex-detail" id="pokedex-detail" aria-live="polite">
+              <div class="pokedex-placeholder"><span class="pokedex-placeholder-icon">◉</span><h2>Elige un Pokémon</h2><p>Consulta estadísticas base, tipos, efectividades y una sugerencia de entrenamiento.</p></div>
+            </section>
+          </div>
+          <div class="notice-card"><span class="notice-symbol" aria-hidden="true">ⓘ</span><p>Los datos biológicos se consultan desde PokéAPI. Las sugerencias EV/naturaleza son orientativas y se calculan a partir de estadísticas base; el formato competitivo cambia por generación. Consulta <a href="https://www.smogon.com/dex/" target="_blank" rel="noopener noreferrer">Smogon Dex</a> para análisis comunitarios actuales. PokeLauncher no copia sus sets.</p></div>
+        </section>
+      </main>
+    </div>
+    <dialog class="game-dialog" id="game-dialog" aria-labelledby="dialog-title">
+      <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar" type="submit">×</button></form>
+      <div class="dialog-art" id="dialog-art" aria-hidden="true"></div>
+      <div class="dialog-body">
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span id="dialog-type"></span></p>
+        <h2 id="dialog-title"></h2>
+        <p class="dialog-description" id="dialog-description"></p>
+        <dl class="game-details">
+          <div><dt>Consola</dt><dd id="dialog-platform"></dd></div>
+          <div><dt>Año</dt><dd id="dialog-year"></dd></div>
+          <div><dt>Región</dt><dd id="dialog-region"></dd></div>
+          <div><dt>Formato</dt><dd id="dialog-format"></dd></div>
+        </dl>
+        <div class="dialog-actions" id="dialog-actions"></div>
+        <p class="download-status" id="download-status" role="status" aria-live="polite"></p>
+        <p class="dialog-footnote" id="dialog-footnote"></p>
+      </div>
+    </dialog>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
